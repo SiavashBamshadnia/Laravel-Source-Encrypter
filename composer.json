@@ -1,0 +1,45 @@
+{
+  "name": "sbamtr/laravel-source-encrypter",
+  "keywords": [
+    "laravel",
+    "lumen",
+    "source",
+    "encrypt",
+    "encryption",
+    "encrypter",
+    "encryptor",
+    "phpBolt",
+    "ionCube"
+  ],
+  "type": "library",
+  "require": {
+    "php": ">=7.1",
+    "illuminate/console": "^5.5|^6|^7",
+    "illuminate/support": "^5.5|^6|^7"
+  },
+  "description": "Laravel Source Encrypter",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Siavash Bamshadnia",
+      "email": "sbamtr@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "sbamtr\\LaravelSourceEncrypter\\": "src"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "sbamtr\\LaravelSourceEncrypter\\SourceEncryptServiceProvider"
+      ]
+    }
+  }
+}
+  
