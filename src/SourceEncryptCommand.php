@@ -42,26 +42,26 @@ class SourceEncryptCommand extends Command
     {
         if (!extension_loaded('bolt')) {
             $this->error('Please install bolt.so https://phpBolt.com');
-            $this->error('PHP Version '.phpversion());
-            $this->error('INI file location '.php_ini_scanned_files());
-            $this->error('Extension dir: '.ini_get('extension_dir'));
+            $this->error('PHP Version ' . phpversion());
+            $this->error('INI file location ' . php_ini_scanned_files());
+            $this->error('Extension dir: ' . ini_get('extension_dir'));
 
             return;
         }
 
         if (empty($this->option('source'))) {
-            $sources = config('source-encrypter.source');
+            $sources = config('source-encrypter.source', ['app', 'database', 'routes']);
         } else {
             $sources = $this->option('source');
             $sources = explode(',', $sources);
         }
         if (empty($this->option('destination'))) {
-            $destination = config('source-encrypter.destination');
+            $destination = config('source-encrypter.destination', 'encrypted');
         } else {
             $destination = $this->option('destination');
         }
         if (empty($this->option('keylength'))) {
-            $keyLength = config('source-encrypter.key_length');
+            $keyLength = config('source-encrypter.key_length', 6);
         } else {
             $keyLength = $this->option('keylength');
         }
@@ -70,7 +70,7 @@ class SourceEncryptCommand extends Command
         File::makeDirectory(base_path($destination));
 
         foreach ($sources as $source) {
-            @File::makeDirectory($destination.'/'.File::dirname($source), 493, true);
+            @File::makeDirectory($destination . '/' . File::dirname($source), 493, true);
 
             if (File::isFile($source)) {
                 self::encryptFile($source, $destination, $keyLength);
@@ -90,7 +90,7 @@ class SourceEncryptCommand extends Command
     {
         $key = Str::random($keyLength);
         if (File::isDirectory(base_path($filePath))) {
-            if (!File::exists(base_path($destination.$filePath))) {
+            if (!File::exists(base_path($destination . $filePath))) {
                 File::makeDirectory(base_path("$destination/$filePath"), 493, true);
             }
 
@@ -115,7 +115,7 @@ bolt_decrypt( __FILE__ , '$key'); return 0;
         }
         /*$cipher = bolt_encrypt('?> ' . $fileContents, $key);*/
         $cipher = bolt_encrypt($fileContents, $key);
-        File::put(base_path("$destination/$filePath"), $prepend.$cipher);
+        File::put(base_path("$destination/$filePath"), $prepend . $cipher);
 
         unset($cipher);
         unset($fileContents);
