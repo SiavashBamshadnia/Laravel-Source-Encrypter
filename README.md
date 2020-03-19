@@ -78,7 +78,7 @@ This command has these optional options:
 | `php artisan encrypt-source`                                  | Encrypts with default source, destination and keylength.                        |
 | `php artisan encrypt-source --source=app`                     | Encrypts `app` directory to the default destination with default keylength.     |
 | `php artisan encrypt-source --destination=dist`               | Encrypts with default source and key length to `dist` directory.                 |
-| `php artisan encrypt-source --destination=dist --keylength=8` | Encrypts default source to `dist` directory and the encryption key length is 8. |
+| `php artisan encrypt-source --destination=dist --keylength=8` | Encrypts default source to `dist` directory and the encryption key length is `8`. |
 
 
 Written with ♥ by Siavash Bamshadnia.
