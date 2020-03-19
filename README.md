@@ -1,5 +1,11 @@
 # Laravel Source Encrypter
 
+[![StyleCI](https://github.styleci.io/repos/248479627/shield?branch=master)](https://github.styleci.io/repos/248479627)
+[![Latest Stable Version](https://poser.pugx.org/sbamtr/laravel-source-encrypter/v/stable)](https://packagist.org/packages/sbamtr/laravel-source-encrypter)
+[![License](https://poser.pugx.org/sbamtr/laravel-source-encrypter/license)](https://packagist.org/packages/sbamtr/laravel-source-encrypter)
+[![CodeFactor](https://www.codefactor.io/repository/github/siavashbamshadnia/laravel-source-encrypter/badge)](https://www.codefactor.io/repository/github/siavashbamshadnia/laravel-source-encrypter)
+
+
 ![](cover.jpg)
 
 This package encrypts your php code with [phpBolt](https://phpbolt.com) 
@@ -73,6 +79,6 @@ This command has these optional options:
 | `php artisan encrypt-source --destination=dist --keylength=8` | Encrypts default source to `dist` directory and the encryption key length is 8. |
 
 
-Written with ♥ by Siavash Bamshadnia
+Written with ♥ by Siavash Bamshadnia.
 
 Please support me by staring this repository.
