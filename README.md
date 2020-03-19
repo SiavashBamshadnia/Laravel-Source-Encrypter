@@ -2,7 +2,7 @@
 
 [![StyleCI](https://github.styleci.io/repos/248479627/shield?branch=master)](https://github.styleci.io/repos/248479627)
 [![Latest Stable Version](https://poser.pugx.org/sbamtr/laravel-source-encrypter/v/stable)](https://packagist.org/packages/sbamtr/laravel-source-encrypter)
-[![License](https://poser.pugx.org/sbamtr/laravel-source-encrypter/license)](https://packagist.org/packages/sbamtr/laravel-source-encrypter)
+[![License](https://poser.pugx.org/sbamtr/laravel-source-encrypter/license)](https://github.com/SiavashBamshadnia/Laravel-Source-Encrypter)
 [![CodeFactor](https://www.codefactor.io/repository/github/siavashbamshadnia/laravel-source-encrypter/badge)](https://www.codefactor.io/repository/github/siavashbamshadnia/laravel-source-encrypter)
 
 
