@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Laravel Source Encrypter
+ * Laravel Source Encrypter.
  *
  * @author      Siavash Bamshadnia
  * @license     http://www.opensource.org/licenses/mit-license.php MIT
@@ -36,7 +36,7 @@ class SourceEncryptServiceProvider extends ServiceProvider
     public function boot()
     {
         // Publish config file
-        $configPath = __DIR__ . '/../config/source-encrypter.php';
+        $configPath = __DIR__.'/../config/source-encrypter.php';
         if (function_exists('config_path')) {
             $publishPath = config_path('source-encrypter.php');
         } else {
