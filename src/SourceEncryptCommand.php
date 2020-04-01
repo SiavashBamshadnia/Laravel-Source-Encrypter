@@ -27,6 +27,7 @@ class SourceEncryptCommand extends Command
     protected $signature = 'encrypt-source
                 { --source= : Path(s) to encrypt }
                 { --destination= : Destination directory }
+                { --force : Force the operation to run when destination directory already exists }
                 { --keylength= : Encryption key length }';
     /**
      * The console command description.
@@ -66,6 +67,14 @@ class SourceEncryptCommand extends Command
             $keyLength = $this->option('keylength');
         }
 
+        if (!$this->hasOption('force')
+            && File::exists(base_path($destination))
+            && $this->confirm("The directory $destination already exists. Delete directory?")
+        ) {
+            $this->line('Command canceled.');
+            return;
+        }
+
         File::deleteDirectory(base_path($destination));
         File::makeDirectory(base_path($destination));
 
@@ -90,7 +99,7 @@ class SourceEncryptCommand extends Command
     {
         $key = Str::random($keyLength);
         if (File::isDirectory(base_path($filePath))) {
-            if (!File::exists(base_path($destination.$filePath))) {
+            if (!File::exists(base_path($destination . $filePath))) {
                 File::makeDirectory(base_path("$destination/$filePath"), 493, true);
             }
 

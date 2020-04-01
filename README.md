@@ -65,21 +65,22 @@ Also the default encryption key length is `6`. You can change it in `config/sour
 
 This command has these optional options:
 
-| Option      | Description           | Example                 |
-|-------------|-----------------------|-------------------------|
-| source      | Path(s) to encrypt    | app,routes,public/a.php |
-| destination | Destination directory | encrypted               |
-| keylength   | Encryption key length | 6                       |
+| Option      | Description                                                          | Example                 |
+|-------------|----------------------------------------------------------------------|-------------------------|
+| source      | Path(s) to encrypt                                                   | app,routes,public/a.php |
+| destination | Destination directory                                                | encrypted               |
+| keylength   | Encryption key length                                                | 6                       |
+| force       | Force the operation to run when destination directory already exists |                         |
 
 ### Usage Examples
 
-| Command                                                     | Description                                                                     |
-|-------------------------------------------------------------|---------------------------------------------------------------------------------|
-| `php artisan encrypt-source`                                  | Encrypts with default source, destination and keylength.                        |
-| `php artisan encrypt-source --source=app`                     | Encrypts `app` directory to the default destination with default keylength.     |
-| `php artisan encrypt-source --destination=dist`               | Encrypts with default source and key length to `dist` directory.                 |
-| `php artisan encrypt-source --destination=dist --keylength=8` | Encrypts default source to `dist` directory and the encryption key length is `8`. |
-
+| Command                                                       | Description                                                                                                       |
+|---------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| `php artisan encrypt-source`                                  | Encrypts with default source, destination and keylength. If the destination directory exists, asks for delete it. |
+| `php artisan encrypt-source --force`                          | Encrypts with default source, destination and keylength. If the destination directory exists, deletes it.         |
+| `php artisan encrypt-source --source=app`                     | Encrypts `app` directory to the default destination with default keylength.                                       |
+| `php artisan encrypt-source --destination=dist`               | Encrypts with default source and key length to `dist` directory.                                                  |
+| `php artisan encrypt-source --destination=dist --keylength=8` | Encrypts default source to `dist` directory and the encryption key length is `8`.                                 |
 
 Written with ♥ by Siavash Bamshadnia.
 
