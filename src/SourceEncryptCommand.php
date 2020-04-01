@@ -67,9 +67,9 @@ class SourceEncryptCommand extends Command
             $keyLength = $this->option('keylength');
         }
 
-        if (!$this->hasOption('force')
+        if (!$this->option('force')
             && File::exists(base_path($destination))
-            && $this->confirm("The directory $destination already exists. Delete directory?")
+            && !$this->confirm("The directory $destination already exists. Delete directory?")
         ) {
             $this->line('Command canceled.');
 
