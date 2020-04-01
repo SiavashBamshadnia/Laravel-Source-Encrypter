@@ -47,7 +47,7 @@ class SourceEncryptCommand extends Command
             $this->error('INI file location '.php_ini_scanned_files());
             $this->error('Extension dir: '.ini_get('extension_dir'));
 
-            return;
+            return 1;
         }
 
         if (empty($this->option('source'))) {
@@ -73,7 +73,7 @@ class SourceEncryptCommand extends Command
         ) {
             $this->line('Command canceled.');
 
-            return;
+            return 1;
         }
 
         File::deleteDirectory(base_path($destination));
@@ -94,6 +94,8 @@ class SourceEncryptCommand extends Command
         }
         $this->info('Encrypting Completed Successfully!');
         $this->info("Destination directory: $destination");
+
+        return 0;
     }
 
     private static function encryptFile($filePath, $destination, $keyLength)
