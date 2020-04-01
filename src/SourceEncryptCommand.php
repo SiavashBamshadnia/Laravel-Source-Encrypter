@@ -72,6 +72,7 @@ class SourceEncryptCommand extends Command
             && $this->confirm("The directory $destination already exists. Delete directory?")
         ) {
             $this->line('Command canceled.');
+
             return;
         }
 
@@ -99,7 +100,7 @@ class SourceEncryptCommand extends Command
     {
         $key = Str::random($keyLength);
         if (File::isDirectory(base_path($filePath))) {
-            if (!File::exists(base_path($destination . $filePath))) {
+            if (!File::exists(base_path($destination.$filePath))) {
                 File::makeDirectory(base_path("$destination/$filePath"), 493, true);
             }
 
