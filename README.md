@@ -1,7 +1,5 @@
 # Laravel Source Encrypter
 
-Laravel and Lumen Source Code Encrypter
-
 [![StyleCI](https://github.styleci.io/repos/248479627/shield?branch=master)](https://github.styleci.io/repos/248479627)
 [![Latest Stable Version](https://poser.pugx.org/sbamtr/laravel-source-encrypter/v/stable)](https://packagist.org/packages/sbamtr/laravel-source-encrypter)
 [![License](https://poser.pugx.org/sbamtr/laravel-source-encrypter/license)](https://github.com/SiavashBamshadnia/Laravel-Source-Encrypter)
