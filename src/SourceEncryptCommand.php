@@ -127,6 +127,7 @@ bolt_decrypt( __FILE__ , '$key'); return 0;
         }
         /*$cipher = bolt_encrypt('?> ' . $fileContents, $key);*/
         $cipher = bolt_encrypt($fileContents, $key);
+        File::isDirectory(dirname("$destination/$filePath")) or File::makeDirectory(dirname("$destination/$filePath"), 0755, true, true);
         File::put(base_path("$destination/$filePath"), $prepend.$cipher);
 
         unset($cipher);
