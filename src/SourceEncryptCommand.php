@@ -81,8 +81,12 @@ class SourceEncryptCommand extends Command
         File::makeDirectory(base_path($destination));
 
         foreach ($sources as $source) {
-            @File::makeDirectory($destination.'/'.File::dirname($source), 493, true);
+            if (!File::exists($source)) {
+                $this->error("File $source does not exist.");
+                return 1;
+            }
 
+            @File::makeDirectory($destination.'/'.File::dirname($source), 493, true);
             if (File::isFile($source)) {
                 self::encryptFile($source, $destination, $keyLength);
                 continue;
