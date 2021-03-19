@@ -83,6 +83,7 @@ class SourceEncryptCommand extends Command
         foreach ($sources as $source) {
             if (!File::exists($source)) {
                 $this->error("File $source does not exist.");
+
                 return 1;
             }
 
