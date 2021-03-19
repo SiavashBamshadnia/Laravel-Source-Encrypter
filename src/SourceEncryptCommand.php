@@ -35,6 +35,7 @@ class SourceEncryptCommand extends Command
      * @var string
      */
     protected $description = 'Encrypts PHP files';
+    protected $warned = [];
 
     /**
      * Execute the console command.
@@ -98,7 +99,7 @@ class SourceEncryptCommand extends Command
         return 0;
     }
 
-    private static function encryptFile($filePath, $destination, $keyLength)
+    private function encryptFile($filePath, $destination, $keyLength)
     {
         $key = Str::random($keyLength);
         if (File::isDirectory(base_path($filePath))) {
@@ -109,7 +110,13 @@ class SourceEncryptCommand extends Command
             return;
         }
 
-        if (File::extension($filePath) != 'php') {
+        $extension = Str::after($filePath, '.');
+
+        if ($extension == 'blade.php' || $extension != 'php') {
+            if (!in_array($extension, $this->warned)) {
+                $this->warn("Encryption of $extension files is not currently supported. These files will be copied without change.");
+                $this->warned[] = $extension;
+            }
             File::copy(base_path($filePath), base_path("$destination/$filePath"));
 
             return;
