@@ -14,8 +14,8 @@
   "type": "library",
   "require": {
     "php": ">=7.2.5",
-    "illuminate/console": "^6|^7|^8",
-    "illuminate/support": "^6|^7|^8",
+    "illuminate/console": "^6|^7|^8|^9",
+    "illuminate/support": "^6|^7|^8|^9",
     "ext-bolt": "*"
   },
   "description": "Laravel Source Encrypter",
