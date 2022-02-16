@@ -10,7 +10,7 @@
 
 This package encrypts your php code with [phpBolt](https://phpbolt.com) 
 
-*For Laravel and Lumen 6, 7, 8*
+*For Laravel and Lumen 6, 7, 8, 9*
 
 * [Installation](#installation)
 * [Usage](#usage)
